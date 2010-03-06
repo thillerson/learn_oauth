@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<style name="Theme.TwitterFirehose" parent="@android:Theme">
+        <item name="android:colorForeground">@color/primary_black</item>
+		<item name="android:colorBackground">@color/primary_black</item>
+        <item name="android:windowBackground">@color/primary_black</item>
+        <item name="android:textAppearance">@style/TextAppearance</item>
+        <item name="android:colorForegroundInverse">@color/primary_black</item>
+        <item name="android:buttonStyle">@style/Widget.Button</item>
+        <item name="android:windowTitleSize">42dip</item>
+        <item name="android:windowTitleStyle">@style/WindowTitle</item>
+        <item name="android:windowTitleBackgroundStyle">@style/WindowTitleBackground</item>
+	</style>
+
+</resources>
