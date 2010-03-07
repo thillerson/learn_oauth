@@ -1,6 +1,6 @@
 package com.oreilly.android.otweet;
 
-import com.oreilly.android.otweet.settings.OAuthHelper;
+import com.oreilly.android.otweet.authorization.OAuthHelper;
 
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
