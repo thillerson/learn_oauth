@@ -30,12 +30,12 @@ public class OAuthHelper {
   }
 
   public void configureOAuth(Twitter twitter) {
-    twitter.setOAuthConsumer(getConsumerKey(), getConsumerSekretKey());
+    twitter.setOAuthConsumer(consumerKey, consumerSecretKey);
     twitter.setOAuthAccessToken(accessToken);
   }
 
   public boolean hasAccessToken() {
-    return accessToken != null;
+    return null != accessToken;
   }
 
   public void storeAccessToken(AccessToken accessToken) {
@@ -44,14 +44,6 @@ public class OAuthHelper {
     editor.putString(AUTH_SEKRET_KEY, accessToken.getTokenSecret());
     editor.commit();
     this.accessToken = accessToken;
-  }
-
-  private String getConsumerKey() {
-    return consumerKey;
-  }
-
-  private String getConsumerSekretKey() {
-    return consumerSecretKey;
   }
 
   private AccessToken loadAccessToken() {
