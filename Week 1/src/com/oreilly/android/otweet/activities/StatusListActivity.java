@@ -26,13 +26,22 @@ public class StatusListActivity extends ListActivity {
     twitter = app.getTwitter();
     
     setContentView(R.layout.main);
-    if (app.isAuthorized()) {
-      loadHomeTimeline();
-    } else {
+  }
+  
+  @Override
+  protected void onResume() {
+    super.onResume();
+    if (!app.isAuthorized()) {
       beginAuthorization();
+    } else {
+      loadTimelineIfNotLoaded();
     }
   }
   
+  private void loadTimelineIfNotLoaded() {
+    loadHomeTimeline();
+  }
+
   private void beginAuthorization() {
     Intent intent = new Intent(this, AuthorizationActivity.class);
     startActivity(intent);

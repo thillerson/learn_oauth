@@ -1,5 +1,7 @@
 package com.oreilly.android.otweet;
 
+import com.oreilly.android.otweet.settings.OAuthHelper;
+
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
@@ -10,14 +12,15 @@ import android.app.Application;
 public class OTweetApplication extends Application {
 
   private Twitter twitter;
+  private RequestToken currentRequestToken;
+  private OAuthHelper oAuthHelper;
 
   @Override
   public void onCreate() {
     super.onCreate();
+    oAuthHelper = new OAuthHelper(this);
     twitter = new TwitterFactory().getInstance();
-    twitter.setOAuthConsumer("YptX556D6gCE4qi1qG4rQ", "QkG087N89rfU6s7ghjkdNYTaMpI2OqzOlsXGggp00");
-    // if we have authorization token, set it here:
-    //twitter.setOAuthAccessToken(loadAccessToken());
+    oAuthHelper.configureOAuth(twitter);
   }
 
   public Twitter getTwitter() {
@@ -25,22 +28,29 @@ public class OTweetApplication extends Application {
   }
 
   public boolean isAuthorized() {
-    // loading saved access token will tell us if we're authorized or not
-    return false;
+    return oAuthHelper.hasAccessToken();
   }
   
-  public String getAuthorizationURL() {
+  public String beginAuthorization() {
     try {
-      RequestToken requestToken = twitter.getOAuthRequestToken();
-      return requestToken.getAuthorizationURL();
+      currentRequestToken = twitter.getOAuthRequestToken();
+      return currentRequestToken.getAuthorizationURL();
     } catch (TwitterException e) {
       e.printStackTrace();
     }
     return null;
   }
 
-  private AccessToken loadAccessToken() {
-    return null;
+  public boolean authorize(String pin) {
+    try {
+      AccessToken accessToken = twitter.getOAuthAccessToken(currentRequestToken, pin);
+      oAuthHelper.storeAccessToken(accessToken);
+      return true;
+    } catch (TwitterException e) {
+      // TODO: respond to bad pin entry
+      e.printStackTrace();
+      return false;
+    }
   }
 
 }

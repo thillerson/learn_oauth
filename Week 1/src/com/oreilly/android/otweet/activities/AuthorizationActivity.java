@@ -7,15 +7,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
-import android.widget.Button;
 import android.widget.EditText;
 
 public class AuthorizationActivity extends Activity {
 
-  private WebView webView;
-  private Button authorizeButton;
-  private EditText pinText;
   private OTweetApplication app;
+  private EditText pinText;
+  private WebView webView;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -23,16 +21,22 @@ public class AuthorizationActivity extends Activity {
     app = (OTweetApplication)getApplication();
     setContentView(R.layout.authorization_view);
     setUpViews();
-    webView.loadUrl(app.getAuthorizationURL());
+    String authURL = app.beginAuthorization();
+    webView.loadUrl(authURL);
   }
   
   public void authorizeButtonClicked(View v) {
-    //blaa
+    String pin = pinText.getText().toString();
+    boolean success = app.authorize(pin);
+    if (success) {
+      finish();
+    } else {
+      //TODO: respond to bad pin, etc
+    }
   }
 
   private void setUpViews() {
     pinText = (EditText)findViewById(R.id.enter_pin_text);
-    authorizeButton = (Button)findViewById(R.id.authorize_button);
     webView = (WebView)findViewById(R.id.web_view);
   }
 
