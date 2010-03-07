@@ -47,9 +47,7 @@ public class OTweetApplication extends Application {
       oAuthHelper.storeAccessToken(accessToken);
       return true;
     } catch (TwitterException e) {
-      // TODO: respond to bad pin entry
-      e.printStackTrace();
-      return false;
+      throw new RuntimeException("Unable to authorize user", e); 
     }
   }
 
