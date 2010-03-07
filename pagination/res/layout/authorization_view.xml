@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+	<WebView
+	  android:id="@+id/web_view"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_above="@+id/enter_pin_title" />
+	<TextView
+	  android:id="@id/enter_pin_title"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/enter_pin"
+      android:padding="6dip"
+      android:layout_above="@+id/enter_pin_text"
+	/>
+	<EditText
+	  android:id="@+id/enter_pin_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_toLeftOf="@+id/authorize_button"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentBottom="true"
+	/>
+	<Button
+	  android:id="@id/authorize_button"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/authorize"
+      android:layout_alignParentRight="true"
+      android:layout_alignParentBottom="true"
+      android:onClick="authorizeButtonClicked"
+	/>
+</RelativeLayout>
