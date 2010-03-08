@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.oreilly.android.otweet.OTweetApplication;
 import com.oreilly.android.otweet.R;
+import com.oreilly.android.otweet.layouts.StatusListItem;
 
 import twitter4j.Status;
 import twitter4j.Twitter;
@@ -12,6 +13,8 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 public class StatusListActivity extends ListActivity {
@@ -64,5 +67,16 @@ public class StatusListActivity extends ListActivity {
       super(context, android.R.layout.simple_list_item_1, statii);
     }
 
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		StatusListItem v;
+		if (null == convertView) {
+			v = (StatusListItem)getLayoutInflater().inflate(R.layout.status_list_item, null);
+		} else {
+			v = (StatusListItem)convertView;
+		}
+		v.setStatus((Status)getItem(position));
+		return v;
+	}
   }
 }
