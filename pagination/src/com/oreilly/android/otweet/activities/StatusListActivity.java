@@ -4,33 +4,35 @@ import java.util.ArrayList;
 
 import com.oreilly.android.otweet.OTweetApplication;
 import com.oreilly.android.otweet.R;
-import com.oreilly.android.otweet.layouts.StatusListItem;
+import com.oreilly.android.otweet.layouts.LoadMoreListItem;
 
+import twitter4j.Paging;
 import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import android.app.ListActivity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 public class StatusListActivity extends ListActivity {
 
   private OTweetApplication app;
   private Twitter twitter;
+  private LoadMoreListItem headerView;
+  private LoadMoreListItem footerView;
+  private StatusListAdapter adapter;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    app = (OTweetApplication)getApplication();
+    app = (OTweetApplication) getApplication();
     twitter = app.getTwitter();
-    
+
     setContentView(R.layout.main);
   }
-  
+
   @Override
   protected void onResume() {
     super.onResume();
@@ -40,7 +42,7 @@ public class StatusListActivity extends ListActivity {
       loadTimelineIfNotLoaded();
     }
   }
-  
+
   private void loadTimelineIfNotLoaded() {
     loadHomeTimeline();
   }
@@ -53,30 +55,54 @@ public class StatusListActivity extends ListActivity {
   private void loadHomeTimeline() {
     try {
       ArrayList<Status> statii = twitter.getHomeTimeline();
-      StatusListAdapter adapter = new StatusListAdapter(this, statii);
+      adapter = new StatusListAdapter(this, this, statii);
+      setLoadMoreViews();
       setListAdapter(adapter);
+      getListView().setSelection(1);
     } catch (TwitterException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
+      throw new RuntimeException("Unable to load home timeline",e);
     }
   }
 
-  private class StatusListAdapter extends ArrayAdapter<Status> {
-
-    public StatusListAdapter(Context context, ArrayList<Status> statii) {
-      super(context, android.R.layout.simple_list_item_1, statii);
+  @Override
+  protected void onListItemClick(ListView l, View v, int position, long id) {
+    if (v.equals(headerView)) {
+      headerView.showProgress();
+      loadNewerTweets();
+    } else if (v.equals(footerView)) {
+      footerView.showProgress();
+      loadOlderTweets();
+    } else {
+      super.onListItemClick(l, v, position, id);
     }
+  }
 
-	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
-		StatusListItem v;
-		if (null == convertView) {
-			v = (StatusListItem)getLayoutInflater().inflate(R.layout.status_list_item, null);
-		} else {
-			v = (StatusListItem)convertView;
-		}
-		v.setStatus((Status)getItem(position));
-		return v;
-	}
+  private void loadNewerTweets() {
+    try {
+      headerView.hideProgress();
+      ArrayList<Status> statii = twitter.getHomeTimeline(new Paging(1).sinceId(adapter.getFirstId()));
+      adapter.appendNewer(statii);
+    } catch (TwitterException e) {
+      throw new RuntimeException("Unable to load home timeline",e);
+    }
+  }
+
+  private void loadOlderTweets() {
+    try {
+      footerView.hideProgress();
+      ArrayList<Status> statii = twitter.getHomeTimeline(new Paging().maxId(adapter.getLastId()-1));
+      adapter.appendNewer(statii);
+    } catch (TwitterException e) {
+      throw new RuntimeException("Unable to load home timeline",e);
+    }
+  }
+
+  private void setLoadMoreViews() {
+    headerView = (LoadMoreListItem) getLayoutInflater().inflate(R.layout.load_more, null);
+    headerView.showHeaderText();
+    footerView = (LoadMoreListItem) getLayoutInflater().inflate(R.layout.load_more, null);
+    footerView.showFooterText();
+    getListView().addHeaderView(headerView);
+    getListView().addFooterView(footerView);
   }
 }
