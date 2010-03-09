@@ -25,16 +25,14 @@
 	   	android:id="@+id/reply_to_text"
 	   	android:layout_width="wrap_content"
 	   	android:layout_height="wrap_content"
-    	android:layout_toRightOf="@id/created_at_text"
-    	android:layout_below="@id/status_text"
-    	android:layout_alignParentRight="true"
+    	android:layout_below="@id/created_at_text"
     	android:visibility="gone"
 	   	android:layout_margin="5dip" />
 	<TextView
 	   	android:id="@+id/geo_text"
 	   	android:layout_width="wrap_content"
 	   	android:layout_height="wrap_content"
-    	android:layout_below="@id/created_at_text"
+    	android:layout_below="@id/reply_to_text"
     	android:visibility="gone"
 	   	android:layout_margin="8dip" />
 </RelativeLayout>
