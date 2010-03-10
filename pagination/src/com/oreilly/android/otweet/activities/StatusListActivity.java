@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.oreilly.android.otweet.OTweetApplication;
 import com.oreilly.android.otweet.R;
 import com.oreilly.android.otweet.layouts.LoadMoreListItem;
+import com.oreilly.android.otweet.adapter.*;
 
 import twitter4j.Paging;
 import twitter4j.Status;
@@ -55,7 +56,7 @@ public class StatusListActivity extends ListActivity {
   private void loadHomeTimeline() {
     try {
       ArrayList<Status> statii = twitter.getHomeTimeline();
-      adapter = new StatusListAdapter(this, this, statii);
+      adapter = new StatusListAdapter(this, statii);
       setLoadMoreViews();
       setListAdapter(adapter);
       getListView().setSelection(1);
