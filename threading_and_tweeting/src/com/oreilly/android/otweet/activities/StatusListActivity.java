@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import com.oreilly.android.otweet.OTweetApplication;
 import com.oreilly.android.otweet.R;
 import com.oreilly.android.otweet.layouts.LoadMoreListItem;
+import com.oreilly.android.otweet.tasks.LoadMoreAsyncTask;
+import com.oreilly.android.otweet.tasks.LoadMoreAsyncTask.LoadMoreStatusesResponder;
+import com.oreilly.android.otweet.tasks.LoadMoreAsyncTask.LoadMoreStatusesResult;
 import com.oreilly.android.otweet.adapters.*;
 
-import twitter4j.Paging;
 import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
@@ -17,10 +19,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.view.Window;
 import android.widget.ListView;
 
-public class StatusListActivity extends ListActivity {
+public class StatusListActivity extends ListActivity implements LoadMoreStatusesResponder {
 
   final private Handler handler = new Handler();
   private OTweetApplication app;
@@ -39,7 +40,6 @@ public class StatusListActivity extends ListActivity {
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
     app = (OTweetApplication) getApplication();
     twitter = app.getTwitter();
 
@@ -53,6 +53,23 @@ public class StatusListActivity extends ListActivity {
       beginAuthorization();
     } else {
       loadTimelineIfNotLoaded();
+    }
+  }
+
+  @Override
+  protected void onListItemClick(ListView l, View v, int position, long id) {
+    if (v.equals(headerView)) {
+      headerView.showProgress();
+      loadNewerTweets();
+    } else if (v.equals(footerView)) {
+      footerView.showProgress();
+      loadOlderTweets();
+    } else {
+      // Watch out! Doesn't account for header/footer! -> Status status = adapter.getItem(position);
+      Status status = (Status)getListView().getItemAtPosition(position);
+      Intent intent = new Intent(this, StatusDetailActivity.class);
+      intent.putExtra(StatusDetailActivity.STATUS, status);
+      startActivity(intent);
     }
   }
 
@@ -87,23 +104,6 @@ public class StatusListActivity extends ListActivity {
     }
   }
 
-  @Override
-  protected void onListItemClick(ListView l, View v, int position, long id) {
-    if (v.equals(headerView)) {
-      headerView.showProgress();
-      loadNewerTweets();
-    } else if (v.equals(footerView)) {
-      footerView.showProgress();
-      loadOlderTweets();
-    } else {
-      // Watch out! Doesn't account for header/footer! -> Status status = adapter.getItem(position);
-      Status status = (Status)getListView().getItemAtPosition(position);
-      Intent intent = new Intent(this, StatusDetailActivity.class);
-      intent.putExtra(StatusDetailActivity.STATUS, status);
-      startActivity(intent);
-    }
-  }
-
   protected void finishedLoadingList() {
     setLoadMoreViews();
     setListAdapter(adapter);
@@ -111,25 +111,28 @@ public class StatusListActivity extends ListActivity {
     progressDialog.dismiss();
   }
 
-  private void loadNewerTweets() {
-    try {
-      headerView.hideProgress();
-      ArrayList<Status> statii = twitter.getHomeTimeline(new Paging(1).sinceId(adapter.getFirstId()));
-      adapter.appendNewer(statii);
-      getListView().setSelection(1);
-    } catch (TwitterException e) {
-      throw new RuntimeException("Unable to load home timeline",e);
+  public void loadingMoreStatuses() {
+    headerView.showProgress();
+  }
+
+  public void statusesLoaded(LoadMoreStatusesResult result) {
+    headerView.hideProgress();
+    if (result.newer) {
+      adapter.appendNewer(result.statuses);
+      if (null == result.statuses || result.statuses.size() == 0) {
+        getListView().setSelection(1);
+      }
+    } else {
+      adapter.appendOlder(result.statuses);
     }
   }
 
+  private void loadNewerTweets() {
+    new LoadMoreAsyncTask(this, twitter, adapter.getFirstId(), true).execute();
+  }
+
   private void loadOlderTweets() {
-    try {
-      footerView.hideProgress();
-      ArrayList<Status> statii = twitter.getHomeTimeline(new Paging().maxId(adapter.getLastId()-1));
-      adapter.appendOlder(statii);
-    } catch (TwitterException e) {
-      throw new RuntimeException("Unable to load home timeline",e);
-    }
+    new LoadMoreAsyncTask(this, twitter, adapter.getLastId()-1, false).execute();
   }
 
   private void setLoadMoreViews() {
@@ -140,4 +143,5 @@ public class StatusListActivity extends ListActivity {
     getListView().addHeaderView(headerView);
     getListView().addFooterView(footerView);
   }
+
 }
