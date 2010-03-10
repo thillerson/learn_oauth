@@ -16,21 +16,18 @@ import com.oreilly.android.otweet.layouts.StatusListItem;
 
 class StatusListAdapter extends ArrayAdapter<Status> {
 
-  /**
-   * 
-   */
-  private StatusListActivity statusListActivity;
+  private Context context;
 
-  public StatusListAdapter(StatusListActivity statusListActivity, Context context, ArrayList<Status> statii) {
+  public StatusListAdapter(Context context, ArrayList<Status> statii) {
     super(context, android.R.layout.simple_list_item_1, statii);
-    this.statusListActivity = statusListActivity;
+    this.context = context;
   }
 
   @Override
   public View getView(int position, View convertView, ViewGroup parent) {
     StatusListItem v;
     if (null == convertView) {
-      v = (StatusListItem) this.statusListActivity.getLayoutInflater().inflate(R.layout.status_list_item, null);
+      v = (StatusListItem) View.inflate(context, R.layout.status_list_item, null);
     } else {
       v = (StatusListItem) convertView;
     }
