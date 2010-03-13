@@ -46,6 +46,8 @@ public final class R {
         public static final int in_reply_to_format=0x7f050008;
         public static final int load_more_footer=0x7f050006;
         public static final int load_more_header=0x7f050005;
+        public static final int loading_home_timeline_description=0x7f05000b;
+        public static final int loading_title=0x7f05000a;
         public static final int no_tweets=0x7f050003;
     }
 }

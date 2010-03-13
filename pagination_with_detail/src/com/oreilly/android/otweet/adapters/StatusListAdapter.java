@@ -1,7 +1,4 @@
-/**
- * 
- */
-package com.oreilly.android.otweet.activities;
+package com.oreilly.android.otweet.adapters;
 
 import java.util.ArrayList;
 
@@ -14,7 +11,7 @@ import android.widget.ArrayAdapter;
 import com.oreilly.android.otweet.R;
 import com.oreilly.android.otweet.layouts.StatusListItem;
 
-class StatusListAdapter extends ArrayAdapter<Status> {
+public class StatusListAdapter extends ArrayAdapter<Status> {
 
   private Context context;
 

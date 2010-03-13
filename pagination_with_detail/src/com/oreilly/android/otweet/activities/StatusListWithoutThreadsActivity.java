@@ -12,28 +12,18 @@ import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import android.app.ListActivity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.ListView;
 
-public class StatusListActivity extends ListActivity {
+public class StatusListWithoutThreadsActivity extends ListActivity {
 
-  final private Handler handler = new Handler();
   private OTweetApplication app;
   private Twitter twitter;
   private LoadMoreListItem headerView;
   private LoadMoreListItem footerView;
   private StatusListAdapter adapter;
-  protected ProgressDialog progressDialog;
-
-  private Runnable finishedLoadingListTask = new Runnable() {
-    public void run() {
-      finishedLoadingList();
-    }
-  };
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -56,18 +46,7 @@ public class StatusListActivity extends ListActivity {
 
   private void loadTimelineIfNotLoaded() {
     if (null == getListAdapter()) {
-      progressDialog = ProgressDialog.show(
-          StatusListActivity.this,
-          getResources().getString(R.string.loading_title),
-          getResources().getString(R.string.loading_home_timeline_description)
-        );
-      Thread loadHomeTimelineThread = new Thread() {
-        public void run() {
-          loadHomeTimeline();
-          handler.post(finishedLoadingListTask);
-        }
-      };
-      loadHomeTimelineThread.start();
+      loadHomeTimeline();
     }
   }
 
@@ -103,13 +82,6 @@ public class StatusListActivity extends ListActivity {
       intent.putExtra(StatusDetailActivity.STATUS, status);
       startActivity(intent);
     }
-  }
-
-  protected void finishedLoadingList() {
-    setLoadMoreViews();
-    setListAdapter(adapter);
-    getListView().setSelection(1);
-    progressDialog.dismiss();
   }
 
   private void loadNewerTweets() {

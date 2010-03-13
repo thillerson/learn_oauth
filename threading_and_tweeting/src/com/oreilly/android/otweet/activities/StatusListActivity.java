@@ -19,6 +19,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.Window;
 import android.widget.ListView;
 
 public class StatusListActivity extends ListActivity implements LoadMoreStatusesResponder {
@@ -42,7 +43,8 @@ public class StatusListActivity extends ListActivity implements LoadMoreStatuses
     super.onCreate(savedInstanceState);
     app = (OTweetApplication) getApplication();
     twitter = app.getTwitter();
-
+    
+    requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
     setContentView(R.layout.main);
   }
 
@@ -112,26 +114,30 @@ public class StatusListActivity extends ListActivity implements LoadMoreStatuses
   }
 
   public void loadingMoreStatuses() {
-    headerView.showProgress();
+    setProgressBarIndeterminateVisibility(true);
   }
 
   public void statusesLoaded(LoadMoreStatusesResult result) {
-    headerView.hideProgress();
+    setProgressBarIndeterminateVisibility(false);
     if (result.newer) {
+      headerView.hideProgress();
       adapter.appendNewer(result.statuses);
       if (null == result.statuses || result.statuses.size() == 0) {
         getListView().setSelection(1);
       }
     } else {
+      footerView.hideProgress();
       adapter.appendOlder(result.statuses);
     }
   }
 
   private void loadNewerTweets() {
+    headerView.showProgress();
     new LoadMoreAsyncTask(this, twitter, adapter.getFirstId(), true).execute();
   }
 
   private void loadOlderTweets() {
+    footerView.showProgress();
     new LoadMoreAsyncTask(this, twitter, adapter.getLastId()-1, false).execute();
   }
 

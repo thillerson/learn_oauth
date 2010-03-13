@@ -10,4 +10,6 @@
     <string name="created_at_format">Created at: %s</string>
     <string name="in_reply_to_format">In reply to: %s</string>
     <string name="geo_location_format">at %f, %f</string>
+    <string name="loading_title">Loading Tweets</string>
+    <string name="loading_home_timeline_description">Loading Your Home Timeline</string>
 </resources>
