@@ -24,6 +24,7 @@ public final class R {
         public static final int reply_to_text=0x7f060009;
         public static final int status_text=0x7f060007;
         public static final int status_user_name_text=0x7f060006;
+        public static final int user_avatar=0x7f06000b;
         public static final int web_view=0x7f060000;
     }
     public static final class layout {
