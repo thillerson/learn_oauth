@@ -52,6 +52,7 @@ public final class R {
         public static final int app_name=0x7f050007;
         public static final int authorization=0x7f050003;
         public static final int authorize=0x7f050004;
+        public static final int blank_tweet_description=0x7f050012;
         public static final int created_at_format=0x7f05000a;
         public static final int enter_pin=0x7f050005;
         public static final int geo_location_format=0x7f05000c;
@@ -63,6 +64,12 @@ public final class R {
         public static final int loading_title=0x7f05000d;
         public static final int no_tweets=0x7f050006;
         public static final int post=0x7f050001;
+        public static final int posting_description=0x7f050014;
+        public static final int posting_title=0x7f050013;
+        public static final int too_many_characters=0x7f05000f;
+        public static final int too_many_characters_description=0x7f050011;
+        public static final int tweet_is_blank=0x7f050010;
+        public static final int tweet_posted=0x7f050015;
         public static final int what_s_happening=0x7f050002;
     }
 }

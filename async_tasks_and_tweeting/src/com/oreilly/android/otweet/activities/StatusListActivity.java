@@ -125,9 +125,7 @@ public class StatusListActivity extends ListActivity implements LoadMoreStatuses
     if (result.newer) {
       headerView.hideProgress();
       adapter.appendNewer(result.statuses);
-      if (null == result.statuses || result.statuses.size() == 0) {
-        getListView().setSelection(1);
-      }
+      getListView().setSelection(1);
     } else {
       footerView.hideProgress();
       adapter.appendOlder(result.statuses);

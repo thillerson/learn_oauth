@@ -21,6 +21,7 @@
 	   	android:layout_height="wrap_content"
     	android:layout_below="@id/title_text"
 	   	android:layout_margin="5dip"
+	   	android:gravity="top"
 	   	android:lines="4" />
 	<Button
 	   	android:id="@+id/post_button"
@@ -28,5 +29,6 @@
 	   	android:layout_height="wrap_content"
     	android:layout_below="@id/tweet_contents"
 	   	android:layout_margin="5dip"
-	   	android:text="@string/post" />
+	   	android:text="@string/post"
+	   	android:onClick="postButtonClicked" />
 </RelativeLayout>
