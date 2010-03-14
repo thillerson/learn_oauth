@@ -18,6 +18,9 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ListView;
@@ -141,6 +144,18 @@ public class StatusListActivity extends ListActivity implements LoadMoreStatuses
     new LoadMoreAsyncTask(this, twitter, adapter.getLastId()-1, false).execute();
   }
 
+  @Override
+  public boolean onCreateOptionsMenu(Menu menu) {
+    MenuInflater inflater = getMenuInflater();
+    inflater.inflate(R.menu.menu, menu);
+    return true;
+  }
+  
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    return MenuHelper.openActivityFromMenuItem(this, item);
+  }
+  
   private void setLoadMoreViews() {
     headerView = (LoadMoreListItem) getLayoutInflater().inflate(R.layout.load_more, null);
     headerView.showHeaderText();
