@@ -7,6 +7,7 @@
 	   	android:layout_width="48px"
 	   	android:layout_height="48px"
 	   	android:adjustViewBounds="true"
+	   	android:layout_marginTop="6dip"
 	   	android:layout_marginLeft="6sp" 
     	android:layout_marginRight="6sp" />
 	<TextView
