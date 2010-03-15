@@ -1,30 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <style name="TextAppearance" parent="android:style/TextAppearance">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColorLink">#FFEE0000</item>
+    </style>
+    
+    <style name="TextAppearance.Title">
+        <item name="android:textStyle">bold</item>
+    </style>
+ 
+    <style name="TextAppearance.Button">
+        <item name="android:textColor">#FFFFFFFF</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+ 
+    <style name="TextAppearance.Title.WindowTitle">
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+ 
     <style name="WindowTitleBackground">
         <item name="android:background">@drawable/window_title_background</item>
     </style>
 
     <style name="WindowTitle">
         <item name="android:singleLine">true</item>
-        <item name="android:textAppearance">@style/TextAppearance.WindowTitle</item>
+        <item name="android:textAppearance">@style/TextAppearance.Title.WindowTitle</item>
         <item name="android:shadowColor">#BB000000</item>
         <item name="android:shadowRadius">2.75</item>
     </style>
     
-    <style name="TextAppearance" parent="@android:style/TextAppearance">
-        <!-- item name="android:textColor">@color/primary_black</item>
-        <item name="android:textColorHighlight">#FF1B82EB</item>
-        <item name="android:textColorHint">?android:attr/textColorHint</item>
-        <item name="android:textColorLink">#5C5CFF</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:typeface">sans</item-->
+    <style name="Widget" parent="android:Widget">
+        <item name="android:textAppearance">@style/TextAppearance</item>
     </style>
     
-    <style name="TextAppearance.WindowTitle" parent="TextAppearance">
-        <item name="android:textColor">#fff</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:textStyle">bold</item>
-    </style>
+    <style name="Widget.Button" parent="android:Widget.Button">
+        <item name="android:textAppearance">@style/TextAppearance.Button</item>
+        <item name="android:background">@drawable/button_background</item>
+     </style>
 </resources>

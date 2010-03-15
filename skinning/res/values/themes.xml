@@ -6,14 +6,14 @@
         <item name="android:colorForeground">@color/color_foreground</item>
         <item name="android:colorForegroundInverse">@color/color_foreground_inverse</item>
 		<item name="android:colorBackground">@color/color_background</item>
-		<!-- Fonts -->
+		<!-- Text -->
         <item name="android:textAppearance">@style/TextAppearance</item>
 		<!-- Window -->
         <item name="android:windowTitleSize">38dip</item>
         <item name="android:windowTitleStyle">@style/WindowTitle</item>
         <item name="android:windowTitleBackgroundStyle">@style/WindowTitleBackground</item>
-        <!--  item name="android:buttonStyle">@style/Widget.Button</item>
-        <item name="android:listViewStyle">@style/Widget.ListView</item>
+        <item name="android:buttonStyle">@style/Widget.Button</item>
+        <!-- item name="android:listViewStyle">@style/Widget.ListView</item>
         <item name="android:editTextStyle">@style/Widget.EditText</item-->
 	</style>
 </resources>

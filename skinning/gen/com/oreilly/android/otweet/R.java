@@ -11,6 +11,10 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
+        public static final int button_color_dark=0x7f050007;
+        public static final int button_color_light=0x7f050006;
+        public static final int button_default_border=0x7f050008;
+        public static final int button_focused_border=0x7f050009;
         public static final int color_background=0x7f050001;
         public static final int color_foreground=0x7f050000;
         public static final int color_foreground_inverse=0x7f050002;
@@ -19,8 +23,12 @@ public final class R {
         public static final int title_color_light=0x7f050003;
     }
     public static final class drawable {
-        public static final int icon=0x7f020000;
-        public static final int window_title_background=0x7f020001;
+        public static final int button_background=0x7f020000;
+        public static final int button_default=0x7f020001;
+        public static final int button_focused=0x7f020002;
+        public static final int button_pressed=0x7f020003;
+        public static final int icon=0x7f020004;
+        public static final int window_title_background=0x7f020005;
     }
     public static final class id {
         public static final int authorize_button=0x7f090003;
@@ -82,22 +90,17 @@ public final class R {
         public static final int what_s_happening=0x7f060002;
     }
     public static final class style {
-        /**  item name="android:textColor">@color/primary_black</item>
-        <item name="android:textColorHighlight">#FF1B82EB</item>
-        <item name="android:textColorHint">?android:attr/textColorHint</item>
-        <item name="android:textColorLink">#5C5CFF</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:typeface">sans</item
-         */
-        public static final int TextAppearance=0x7f070002;
-        public static final int TextAppearance_WindowTitle=0x7f070003;
-        /**   item name="android:buttonStyle">@style/Widget.Button</item>
-        <item name="android:listViewStyle">@style/Widget.ListView</item>
+        public static final int TextAppearance=0x7f070000;
+        public static final int TextAppearance_Button=0x7f070002;
+        public static final int TextAppearance_Title=0x7f070001;
+        public static final int TextAppearance_Title_WindowTitle=0x7f070003;
+        /**  item name="android:listViewStyle">@style/Widget.ListView</item>
         <item name="android:editTextStyle">@style/Widget.EditText</item
          */
-        public static final int Theme_OTweet=0x7f070004;
-        public static final int WindowTitle=0x7f070001;
-        public static final int WindowTitleBackground=0x7f070000;
+        public static final int Theme_OTweet=0x7f070008;
+        public static final int Widget=0x7f070006;
+        public static final int Widget_Button=0x7f070007;
+        public static final int WindowTitle=0x7f070005;
+        public static final int WindowTitleBackground=0x7f070004;
     }
 }

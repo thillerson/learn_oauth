@@ -16,7 +16,8 @@
 	   	android:layout_height="wrap_content"
 	   	android:layout_marginTop="6dip"
 	   	android:layout_marginBottom="6dip"
-    	android:layout_toRightOf="@id/user_avatar" />
+    	android:layout_toRightOf="@id/user_avatar"
+    	style="@style/TextAppearance.Title" />
 	<TextView
 	   	android:id="@+id/status_text"
 	   	android:layout_width="wrap_content"
