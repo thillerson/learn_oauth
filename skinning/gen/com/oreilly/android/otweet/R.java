@@ -12,12 +12,27 @@ public final class R {
     }
     public static final class color {
         public static final int button_color_dark=0x7f050007;
+        public static final int button_color_disabled=0x7f050008;
         public static final int button_color_light=0x7f050006;
-        public static final int button_default_border=0x7f050008;
-        public static final int button_focused_border=0x7f050009;
+        public static final int button_default_border=0x7f050009;
+        public static final int button_disabled_focused_border=0x7f05000b;
+        public static final int button_focused_border=0x7f05000a;
         public static final int color_background=0x7f050001;
         public static final int color_foreground=0x7f050000;
         public static final int color_foreground_inverse=0x7f050002;
+        public static final int list_item_color_dark=0x7f050013;
+        public static final int list_item_color_disabled=0x7f050018;
+        public static final int list_item_color_light=0x7f050012;
+        public static final int list_item_pressed_color_dark=0x7f050017;
+        public static final int list_item_pressed_color_light=0x7f050016;
+        public static final int list_item_selected_color_dark=0x7f050015;
+        public static final int list_item_selected_color_light=0x7f050014;
+        public static final int textfield_color_dark=0x7f05000d;
+        public static final int textfield_color_disabled=0x7f05000e;
+        public static final int textfield_color_light=0x7f05000c;
+        public static final int textfield_default_border=0x7f05000f;
+        public static final int textfield_disabled_focused_border=0x7f050011;
+        public static final int textfield_focused_border=0x7f050010;
         public static final int title_border=0x7f050005;
         public static final int title_color_dark=0x7f050004;
         public static final int title_color_light=0x7f050003;
@@ -25,10 +40,25 @@ public final class R {
     public static final class drawable {
         public static final int button_background=0x7f020000;
         public static final int button_default=0x7f020001;
-        public static final int button_focused=0x7f020002;
-        public static final int button_pressed=0x7f020003;
-        public static final int icon=0x7f020004;
-        public static final int window_title_background=0x7f020005;
+        public static final int button_disabled=0x7f020002;
+        public static final int button_disabled_focused=0x7f020003;
+        public static final int button_focused=0x7f020004;
+        public static final int button_pressed=0x7f020005;
+        public static final int edit_text=0x7f020006;
+        public static final int icon=0x7f020007;
+        public static final int list_item_background_disabled=0x7f020008;
+        public static final int list_item_background_focus=0x7f020009;
+        public static final int list_item_background_pressed=0x7f02000a;
+        public static final int list_item_background_standard=0x7f02000b;
+        public static final int list_item_background_transition=0x7f02000c;
+        public static final int list_item_divider=0x7f02000d;
+        public static final int list_selector_background=0x7f02000e;
+        public static final int textfield_default=0x7f02000f;
+        public static final int textfield_disabled=0x7f020010;
+        public static final int textfield_disabled_selected=0x7f020011;
+        public static final int textfield_pressed=0x7f020012;
+        public static final int textfield_selected=0x7f020013;
+        public static final int window_title_background=0x7f020014;
     }
     public static final class id {
         public static final int authorize_button=0x7f090003;
@@ -92,15 +122,15 @@ public final class R {
     public static final class style {
         public static final int TextAppearance=0x7f070000;
         public static final int TextAppearance_Button=0x7f070002;
+        public static final int TextAppearance_EditText=0x7f070003;
         public static final int TextAppearance_Title=0x7f070001;
-        public static final int TextAppearance_Title_WindowTitle=0x7f070003;
-        /**  item name="android:listViewStyle">@style/Widget.ListView</item>
-        <item name="android:editTextStyle">@style/Widget.EditText</item
-         */
-        public static final int Theme_OTweet=0x7f070008;
-        public static final int Widget=0x7f070006;
-        public static final int Widget_Button=0x7f070007;
-        public static final int WindowTitle=0x7f070005;
-        public static final int WindowTitleBackground=0x7f070004;
+        public static final int TextAppearance_Title_WindowTitle=0x7f070004;
+        public static final int Theme_OTweet=0x7f07000b;
+        public static final int Widget=0x7f070007;
+        public static final int Widget_Button=0x7f070008;
+        public static final int Widget_EditText=0x7f070009;
+        public static final int Widget_ListView=0x7f07000a;
+        public static final int WindowTitle=0x7f070006;
+        public static final int WindowTitleBackground=0x7f070005;
     }
 }

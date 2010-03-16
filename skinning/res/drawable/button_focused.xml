@@ -5,7 +5,6 @@
        android:angle="270"
        android:startColor="@color/button_color_light"
        android:endColor="@color/button_color_dark"
-       android:centerY="0.50"
     />
 	<stroke android:color="@color/button_focused_border" android:width="2dip" />
     <padding android:left="8dip" android:top="8dip" android:right="8dip" android:bottom="8dip" />

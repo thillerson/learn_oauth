@@ -3,11 +3,11 @@
 	android:shape="rectangle">
     <gradient
        android:angle="270"
-       android:startColor="@color/button_color_dark"
-       android:endColor="@color/button_color_light"
+       android:startColor="@color/textfield_color_dark"
+       android:endColor="@color/textfield_color_light"
     />
-	<stroke android:color="@color/button_focused_border" android:width="2dip" />
-    <padding android:left="8dip" android:top="8dip" android:right="8dip" android:bottom="8dip" />
+	<stroke android:color="@color/textfield_default_border" android:width="1dip" />
+    <padding android:left="10dip" android:top="10dip" android:right="10dip" android:bottom="10dip" />
     <corners
 		android:bottomRightRadius="6dip"
 		android:bottomLeftRadius="6dip"

@@ -22,7 +22,6 @@
 	   	android:layout_height="wrap_content"
     	android:layout_below="@id/title_text"
 	   	android:layout_margin="5dip"
-	   	android:gravity="top"
 	   	android:lines="4" />
 	<Button
 	   	android:id="@+id/post_button"
