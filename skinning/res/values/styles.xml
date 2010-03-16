@@ -10,7 +10,6 @@
     </style>
  
     <style name="TextAppearance.Button">
-        <item name="android:textColor">#FFFFFFFF</item>
         <item name="android:textStyle">bold</item>
     </style>
  
@@ -38,5 +37,6 @@
     <style name="Widget.Button" parent="android:Widget.Button">
         <item name="android:textAppearance">@style/TextAppearance.Button</item>
         <item name="android:background">@drawable/button_background</item>
+        <item name="android:textColor">#FFFFFFFF</item>
      </style>
 </resources>
