@@ -22,8 +22,8 @@
 	<color name="textfield_focused_border">#FFFFD400</color>
 	<color name="textfield_disabled_focused_border">#FFFFD400</color>
 
-	<color name="list_item_color_light">#FFFFFFFF</color>
-	<color name="list_item_color_dark">#FFDDDDDD</color>
+	<color name="list_item_color_light">#FFEEEEEE</color>
+	<color name="list_item_color_dark">#FFBBBBBB</color>
 	<color name="list_item_selected_color_light">#FFFFFFFF</color>
 	<color name="list_item_selected_color_dark">#FFDDDDDD</color>
 	<color name="list_item_pressed_color_light">#FFFFFFFF</color>

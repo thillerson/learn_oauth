@@ -51,8 +51,9 @@
      </style>
      
     <style name="Widget.ListView" parent="android:Widget.ListView">
-        <item name="android:listSelector">@android:drawable/list_selector_background</item>
+        <item name="android:listSelector">@drawable/list_selector_background</item>
         <item name="android:cacheColorHint">@color/color_foreground</item>
         <item name="android:divider">@drawable/list_item_divider</item>
+        <item name="android:dividerHeight">1sp</item>
     </style>
 </resources>

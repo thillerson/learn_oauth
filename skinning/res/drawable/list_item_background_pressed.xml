@@ -3,7 +3,9 @@
 	android:shape="rectangle">
     <gradient
        android:angle="270"
-       android:startColor="@color/list_item_pressed_color_dark"
-       android:endColor="@color/list_item_pressed_color_light"
+       android:centerColor="@color/list_item_selected_color_light"
+       android:startColor="@color/list_item_selected_color_dark"
+       android:endColor="@color/list_item_selected_color_light"
     />
+	<stroke android:color="@color/button_focused_border" android:width="4dip" />
 </shape>
