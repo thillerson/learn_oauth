@@ -16,11 +16,22 @@
 	   	android:layout_height="wrap_content"
 	   	android:layout_margin="5dip"
 	   	android:layout_alignParentRight="true" />
+	<Button
+	   	android:id="@+id/photo_button"
+	   	android:layout_width="88px"
+	   	android:layout_height="wrap_content"
+    	android:layout_below="@id/counter_text"
+    	android:layout_alignParentRight="true"
+    	android:layout_alignTop="@+id/tweet_contents"
+    	android:layout_alignBottom="@id/tweet_contents"
+	   	android:layout_margin="5dip"
+	   	android:onClick="postButtonClicked" />
 	<EditText
-	   	android:id="@+id/tweet_contents"
+	   	android:id="@id/tweet_contents"
 	   	android:layout_width="fill_parent"
 	   	android:layout_height="wrap_content"
     	android:layout_below="@id/title_text"
+    	android:layout_toLeftOf="@id/photo_button"
 	   	android:layout_margin="5dip"
 	   	android:lines="4" />
 	<Button
