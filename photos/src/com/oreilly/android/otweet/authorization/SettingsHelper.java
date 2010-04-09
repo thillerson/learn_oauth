@@ -71,7 +71,7 @@ public class SettingsHelper {
   }
 
   public String[] getTwitPicCredentials() {
-    return new String[]{prefs.getString(TWITPIC_USERNAME, ""), prefs.getString(TWITPIC_PASSWORD, "")};
+    return new String[]{prefs.getString(TWITPIC_USERNAME, null), prefs.getString(TWITPIC_PASSWORD, null)};
   }
   
   public void saveTwitPicCredentials(String username, String password) {

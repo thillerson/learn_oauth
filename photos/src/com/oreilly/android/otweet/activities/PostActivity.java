@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.text.Editable;
@@ -19,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,6 +32,7 @@ public class PostActivity extends Activity implements PostTweetResponder {
   private EditText tweetContent;
   private AlertDialog alertDialog;
   private ProgressDialog progressDialog;
+  private Button photoButton;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,12 @@ public class PostActivity extends Activity implements PostTweetResponder {
     app = (OTweetApplication)getApplication();
     setContentView(R.layout.post_view);
     setUpViews();
+  }
+  
+  @Override
+  protected void onResume() {
+    super.onResume();
+    configurePhotoButton();
   }
 
   @Override
@@ -98,8 +107,28 @@ public class PostActivity extends Activity implements PostTweetResponder {
     postValidTweetOrWarn();
   }
   
+  // called when post button on view is clicked
+  public void photoButtonClicked(View view) {
+    if (app.hasTwitPicCredentials()) {
+      // camera choices
+    } else {
+      Intent intent = new Intent(this, SettingsActivity.class);
+      startActivity(intent);
+    }
+  }
+  
+  private void configurePhotoButton() {
+    if (app.hasTwitPicCredentials()) {
+      photoButton.setText(R.string.attach_photo);
+    } else {
+      photoButton.setText(R.string.sign_in_to_twitpic);
+    }
+  }
+
   private void setUpViews() {
     counterText = (TextView)findViewById(R.id.counter_text);
+    photoButton = (Button)findViewById(R.id.photo_button);
+    configurePhotoButton();
     tweetContent = (EditText)findViewById(R.id.tweet_contents);
     tweetContent.addTextChangedListener(new TextWatcher() {
       public void afterTextChanged(Editable text) { }

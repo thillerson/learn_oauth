@@ -109,6 +109,7 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f06000e;
+        public static final int attach_photo=0x7f06001e;
         public static final int authorization=0x7f06000a;
         public static final int authorize=0x7f06000b;
         public static final int blank_tweet_description=0x7f060019;
@@ -128,6 +129,7 @@ public final class R {
         public static final int save=0x7f060004;
         public static final int settings=0x7f060006;
         public static final int settings_saved=0x7f060005;
+        public static final int sign_in_to_twitpic=0x7f06001d;
         public static final int too_many_characters=0x7f060016;
         public static final int too_many_characters_description=0x7f060018;
         public static final int tweet_is_blank=0x7f060017;

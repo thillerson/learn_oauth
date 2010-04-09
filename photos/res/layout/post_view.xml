@@ -25,7 +25,7 @@
     	android:layout_alignTop="@+id/tweet_contents"
     	android:layout_alignBottom="@id/tweet_contents"
 	   	android:layout_margin="5dip"
-	   	android:onClick="postButtonClicked" />
+	   	android:onClick="photoButtonClicked" />
 	<EditText
 	   	android:id="@id/tweet_contents"
 	   	android:layout_width="fill_parent"

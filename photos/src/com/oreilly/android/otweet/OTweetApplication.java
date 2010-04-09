@@ -64,6 +64,10 @@ public class OTweetApplication extends Application {
   public String getTwitPicPassword() {
     return password;
   }
+  
+  public boolean hasTwitPicCredentials() {
+    return (null != username && null != password);
+  }
 
   public void saveTwitPicCredentials(String username, String password) {
     this.username = username;
