@@ -40,7 +40,7 @@ public class OTweetApplication extends Application {
     }
     return null;
   }
-
+  
   public boolean authorize(String pin) {
     try {
       AccessToken accessToken = twitter.getOAuthAccessToken(currentRequestToken, pin);
@@ -49,6 +49,16 @@ public class OTweetApplication extends Application {
     } catch (TwitterException e) {
       throw new RuntimeException("Unable to authorize user", e); 
     }
+  }
+
+  public void authorized() {
+    try {
+      AccessToken accessToken = twitter.getOAuthAccessToken();
+      oAuthHelper.storeAccessToken(accessToken);
+    } catch (TwitterException e) {
+      throw new RuntimeException("Unable to authorize user", e); 
+    }
+    
   }
 
 }
