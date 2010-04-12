@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="image_posted_from_o_tweet">Image Posted from O\'Tweet</string>
+    <string name="photo_library">Photo Library</string>
+    <string name="camera">Camera</string>
+    <string name="choose_a_photo_source">Choose a Photo Source</string>
     <string name="twitter_password">Twitter Password</string>
     <string name="twitter_username">Twitter Username</string>
     <string name="twit_pic_credentials_description">To post photos to TwitPic, you need to enter your Twitter username and password here. Don\'t worry, we\'ll keep it safe.</string>
