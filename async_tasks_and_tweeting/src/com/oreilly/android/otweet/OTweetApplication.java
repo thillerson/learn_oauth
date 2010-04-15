@@ -51,4 +51,14 @@ public class OTweetApplication extends Application {
     }
   }
 
+  public void authorized() {
+    try {
+      AccessToken accessToken = twitter.getOAuthAccessToken();
+      oAuthHelper.storeAccessToken(accessToken);
+    } catch (TwitterException e) {
+      throw new RuntimeException("Unable to authorize user", e); 
+    }
+    
+  }
+
 }

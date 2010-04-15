@@ -65,31 +65,29 @@ public final class R {
         public static final int window_title_background=0x7f020018;
     }
     public static final class id {
-        public static final int authorize_button=0x7f090003;
-        public static final int counter_text=0x7f090007;
-        public static final int created_at_text=0x7f090012;
-        public static final int enter_pin_text=0x7f090002;
+        public static final int counter_text=0x7f090005;
+        public static final int created_at_text=0x7f090010;
         public static final int enter_pin_title=0x7f090001;
-        public static final int geo_text=0x7f090014;
-        public static final int load_more_progress=0x7f090005;
-        public static final int load_more_text=0x7f090004;
-        public static final int main_menu_group=0x7f090016;
-        public static final int menu_item_home=0x7f090017;
-        public static final int menu_item_post=0x7f090018;
-        public static final int menu_item_settings=0x7f090019;
-        public static final int password=0x7f09000e;
-        public static final int photo_button=0x7f090008;
-        public static final int post_button=0x7f09000a;
-        public static final int reply_to_text=0x7f090013;
-        public static final int save_button=0x7f09000f;
-        public static final int status_text=0x7f090011;
-        public static final int status_user_name_text=0x7f090010;
-        public static final int title_text=0x7f090006;
-        public static final int tweet_contents=0x7f090009;
-        public static final int twit_pic_credentials=0x7f09000b;
-        public static final int twit_pic_credentials_description=0x7f09000c;
-        public static final int user_avatar=0x7f090015;
-        public static final int username=0x7f09000d;
+        public static final int geo_text=0x7f090012;
+        public static final int load_more_progress=0x7f090003;
+        public static final int load_more_text=0x7f090002;
+        public static final int main_menu_group=0x7f090014;
+        public static final int menu_item_home=0x7f090015;
+        public static final int menu_item_post=0x7f090016;
+        public static final int menu_item_settings=0x7f090017;
+        public static final int password=0x7f09000c;
+        public static final int photo_button=0x7f090006;
+        public static final int post_button=0x7f090008;
+        public static final int reply_to_text=0x7f090011;
+        public static final int save_button=0x7f09000d;
+        public static final int status_text=0x7f09000f;
+        public static final int status_user_name_text=0x7f09000e;
+        public static final int title_text=0x7f090004;
+        public static final int tweet_contents=0x7f090007;
+        public static final int twit_pic_credentials=0x7f090009;
+        public static final int twit_pic_credentials_description=0x7f09000a;
+        public static final int user_avatar=0x7f090013;
+        public static final int username=0x7f09000b;
         public static final int web_view=0x7f090000;
     }
     public static final class layout {

@@ -4,16 +4,44 @@ import com.oreilly.android.otweet.OTweetApplication;
 import com.oreilly.android.otweet.R;
 
 import android.app.Activity;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
-import android.widget.EditText;
+import android.webkit.WebViewClient;
 
 public class AuthorizationActivity extends Activity {
 
   private OTweetApplication app;
-  private EditText pinText;
   private WebView webView;
+  
+  private WebViewClient webViewClient = new WebViewClient() {
+    @Override
+    public void onLoadResource(WebView view, String url) {
+      // the URL we're looking for looks like this:
+      // http://otweet.com/authenticated?oauth_token=1234567890qwertyuiop
+      Uri uri = Uri.parse(url);
+      if (uri.getHost().equals("otweet.com")) {
+        String token = uri.getQueryParameter("oauth_token");
+        if (null != token) {
+          webView.setVisibility(View.INVISIBLE);
+          app.authorized();
+          finish();
+        } else {
+          // tell user to try again 
+        }
+      } else {
+        super.onLoadResource(view, url);
+      }
+    }
+
+    @Override
+    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+      return super.shouldOverrideUrlLoading(view, url);
+    }
+    
+    
+  };
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -25,19 +53,9 @@ public class AuthorizationActivity extends Activity {
     webView.loadUrl(authURL);
   }
   
-  public void authorizeButtonClicked(View v) {
-    String pin = pinText.getText().toString();
-    boolean success = app.authorize(pin);
-    if (success) {
-      finish();
-    } else {
-      //TODO: respond to bad pin, etc
-    }
-  }
-
   private void setUpViews() {
-    pinText = (EditText)findViewById(R.id.enter_pin_text);
     webView = (WebView)findViewById(R.id.web_view);
+    webView.setWebViewClient(webViewClient);
   }
 
 }
