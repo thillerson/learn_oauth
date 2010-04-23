@@ -34,13 +34,6 @@ public class AuthorizationActivity extends Activity {
         super.onLoadResource(view, url);
       }
     }
-
-    @Override
-    public boolean shouldOverrideUrlLoading(WebView view, String url) {
-      return super.shouldOverrideUrlLoading(view, url);
-    }
-    
-    
   };
 
   @Override
@@ -49,10 +42,15 @@ public class AuthorizationActivity extends Activity {
     app = (OTweetApplication)getApplication();
     setContentView(R.layout.authorization_view);
     setUpViews();
+  }
+  
+  @Override
+  protected void onResume() {
+    super.onResume();
     String authURL = app.beginAuthorization();
     webView.loadUrl(authURL);
   }
-  
+
   private void setUpViews() {
     webView = (WebView)findViewById(R.id.web_view);
     webView.setWebViewClient(webViewClient);
