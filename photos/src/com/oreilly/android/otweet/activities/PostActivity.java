@@ -63,19 +63,26 @@ public class PostActivity extends Activity implements PostTweetResponder, PostPh
   @Override
   protected void onSaveInstanceState(Bundle outState) {
     super.onSaveInstanceState(outState);
-    outState.putString(PHOTO_URI_BUNDLE_KEY, photoUri.toString());
+    if (null != photoUri) {
+      outState.putString(PHOTO_URI_BUNDLE_KEY, photoUri.toString());
+    }
   }
 
   @Override
   protected void onRestoreInstanceState(Bundle savedInstanceState) {
     super.onRestoreInstanceState(savedInstanceState);
+    String photoURIString = savedInstanceState.getString(PHOTO_URI_BUNDLE_KEY);
+    if (null != photoURIString) {
+      photoUri = Uri.parse(photoURIString);
+      photoToPostChosen(photoUri);
+    }
   }
 
   @Override
   protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-    if (REQUEST_CHOOSE_PHOTO_FROM_LIBRARY == requestCode) {
+    if (REQUEST_CHOOSE_PHOTO_FROM_LIBRARY == requestCode && resultCode == RESULT_OK) {
       photoToPostChosen(intent.getData());
-    } else if (REQUEST_CHOOSE_PHOTO_FROM_CAMERA == requestCode) {
+    } else if (REQUEST_CHOOSE_PHOTO_FROM_CAMERA == requestCode && resultCode == RESULT_OK) {
       photoToPostChosen(photoUri);
     } else {
       super.onActivityResult(requestCode, resultCode, intent);
