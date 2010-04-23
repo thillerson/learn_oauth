@@ -33,7 +33,9 @@ public class OTweetApplication extends Application {
   
   public String beginAuthorization() {
     try {
-      currentRequestToken = twitter.getOAuthRequestToken();
+      if (null == currentRequestToken) {
+        currentRequestToken = twitter.getOAuthRequestToken();
+      }
       return currentRequestToken.getAuthorizationURL();
     } catch (TwitterException e) {
       e.printStackTrace();
