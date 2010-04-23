@@ -33,7 +33,8 @@
     	android:layout_below="@id/title_text"
     	android:layout_toLeftOf="@id/photo_button"
 	   	android:layout_margin="5dip"
-	   	android:lines="4" />
+	   	android:lines="4"
+	   	android:inputType="textCapSentences|textMultiLine|textAutoCorrect|textAutoComplete" />
 	<Button
 	   	android:id="@+id/post_button"
 	   	android:layout_width="fill_parent"
