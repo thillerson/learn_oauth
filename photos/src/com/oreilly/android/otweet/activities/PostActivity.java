@@ -42,6 +42,7 @@ public class PostActivity extends Activity implements PostTweetResponder, PostPh
 
   private static final int REQUEST_CHOOSE_PHOTO_FROM_LIBRARY = 0;
   private static final int REQUEST_CHOOSE_PHOTO_FROM_CAMERA = 1;
+  private static final String PHOTO_URI_BUNDLE_KEY = "photoURI";
 
   private OTweetApplication app;
   private TextView counterText;
@@ -58,7 +59,18 @@ public class PostActivity extends Activity implements PostTweetResponder, PostPh
     setContentView(R.layout.post_view);
     setUpViews();
   }
-  
+    
+  @Override
+  protected void onSaveInstanceState(Bundle outState) {
+    super.onSaveInstanceState(outState);
+    outState.putString(PHOTO_URI_BUNDLE_KEY, photoUri.toString());
+  }
+
+  @Override
+  protected void onRestoreInstanceState(Bundle savedInstanceState) {
+    super.onRestoreInstanceState(savedInstanceState);
+  }
+
   @Override
   protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
     if (REQUEST_CHOOSE_PHOTO_FROM_LIBRARY == requestCode) {
