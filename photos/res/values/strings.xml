@@ -33,6 +33,6 @@
     <string name="posting_title">Posting</string>
     <string name="posting_description">Posting Your Tweet</string>
     <string name="tweet_posted">Tweet Posted!</string>
-    <string name="sign_in_to_twitpic">Sign in to Twitpic</string>
+    <string name="sign_in_to_twitpic">Sign in</string>
     <string name="attach_photo">Attach Photo</string>
 </resources>
