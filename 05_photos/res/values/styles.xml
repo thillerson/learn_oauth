@@ -16,6 +16,10 @@
     <style name="TextAppearance.EditText">
         <item name="android:textSize">14sp</item>
     </style>
+    
+    <style name="link_like_text">
+    	<item name="android:textColor">#00f</item>
+    </style>
  
     <style name="TextAppearance.Title.WindowTitle">
         <item name="android:textColor">#fff</item>

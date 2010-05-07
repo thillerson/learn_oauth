@@ -10,8 +10,20 @@
 	   	android:layout_margin="5dip"
 	   	android:text="@string/what_s_happening"
     	style="@style/TextAppearance.Title" />
+    <TextView
+	   	android:id="@+id/hashtag_text"
+	   	android:layout_width="wrap_content"
+	   	android:layout_height="wrap_content"
+	   	android:layout_margin="5dip"
+	   	android:text="#androidjava"
+	   	android:layout_toRightOf="@id/title_text"
+	   	android:layout_toLeftOf="@+id/counter_text"
+	   	style="@style/link_like_text"
+	   	android:focusable="true"
+	   	android:clickable="true"
+	   	android:onClick="hashButtonClicked" />
 	<TextView
-	   	android:id="@+id/counter_text"
+	   	android:id="@id/counter_text"
 	   	android:layout_width="wrap_content"
 	   	android:layout_height="wrap_content"
 	   	android:layout_margin="5dip"

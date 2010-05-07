@@ -181,6 +181,12 @@ public class PostActivity extends Activity implements PostTweetResponder, PostPh
     postValidTweetOrWarn();
   }
   
+  // called when #androidjava link clicked
+  public void hashButtonClicked(View view) {
+    String currentText = tweetContent.getText().toString();
+    tweetContent.setText(currentText.concat(" #androidjava"));
+  }
+  
   protected void openCamera() {
     SimpleDateFormat timeStampFormat = new SimpleDateFormat("yyyyMMddHHmmssSS");
     String filenameTimestamp = timeStampFormat.format(new Date());
