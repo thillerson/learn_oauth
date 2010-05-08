@@ -12,9 +12,5 @@
         <item name="android:windowTitleSize">38dip</item>
         <item name="android:windowTitleStyle">@style/WindowTitle</item>
         <item name="android:windowTitleBackgroundStyle">@style/WindowTitleBackground</item>
-		<!-- Components -->
-        <item name="android:buttonStyle">@style/Widget.Button</item>
-        <item name="android:editTextStyle">@style/Widget.EditText</item>
-        <item name="android:listViewStyle">@style/Widget.ListView</item>
 	</style>
 </resources>

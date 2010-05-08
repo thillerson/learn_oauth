@@ -46,22 +46,8 @@ public final class R {
         public static final int button_pressed=0x7f020005;
         public static final int clock=0x7f020006;
         public static final int dialog=0x7f020007;
-        public static final int edit_text=0x7f020008;
-        public static final int icon=0x7f020009;
-        public static final int list_item_background=0x7f02000a;
-        public static final int list_item_background_disabled=0x7f02000b;
-        public static final int list_item_background_focus=0x7f02000c;
-        public static final int list_item_background_pressed=0x7f02000d;
-        public static final int list_item_background_standard=0x7f02000e;
-        public static final int list_item_background_transition=0x7f02000f;
-        public static final int list_item_divider=0x7f020010;
-        public static final int list_selector_background=0x7f020011;
-        public static final int textfield_default=0x7f020012;
-        public static final int textfield_disabled=0x7f020013;
-        public static final int textfield_disabled_selected=0x7f020014;
-        public static final int textfield_pressed=0x7f020015;
-        public static final int textfield_selected=0x7f020016;
-        public static final int window_title_background=0x7f020017;
+        public static final int icon=0x7f020008;
+        public static final int window_title_background=0x7f020009;
     }
     public static final class id {
         public static final int counter_text=0x7f090005;
@@ -126,11 +112,9 @@ public final class R {
         public static final int TextAppearance_EditText=0x7f070003;
         public static final int TextAppearance_Title=0x7f070001;
         public static final int TextAppearance_Title_WindowTitle=0x7f070004;
-        public static final int Theme_OTweet=0x7f07000b;
+        public static final int Theme_OTweet=0x7f070009;
         public static final int Widget=0x7f070007;
         public static final int Widget_Button=0x7f070008;
-        public static final int Widget_EditText=0x7f070009;
-        public static final int Widget_ListView=0x7f07000a;
         public static final int WindowTitle=0x7f070006;
         public static final int WindowTitleBackground=0x7f070005;
     }

@@ -14,7 +14,5 @@
         <item name="android:windowTitleBackgroundStyle">@style/WindowTitleBackground</item>
 		<!-- Components -->
         <item name="android:buttonStyle">@style/Widget.Button</item>
-        <item name="android:editTextStyle">@style/Widget.EditText</item>
-        <item name="android:listViewStyle">@style/Widget.ListView</item>
 	</style>
 </resources>
