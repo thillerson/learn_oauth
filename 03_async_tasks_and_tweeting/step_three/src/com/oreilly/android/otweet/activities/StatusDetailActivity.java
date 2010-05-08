@@ -7,9 +7,6 @@ import com.oreilly.android.otweet.R;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -59,18 +56,6 @@ public class StatusDetailActivity extends Activity {
     }
   }
 
-  @Override
-  public boolean onCreateOptionsMenu(Menu menu) {
-    MenuInflater inflater = getMenuInflater();
-    inflater.inflate(R.menu.menu, menu);
-    return true;
-  }
-  
-  @Override
-  public boolean onOptionsItemSelected(MenuItem item) {
-    return MenuHelper.openActivityFromMenuItem(this, item);
-  }
-  
   private void setUpViews() {
     userNameText = (TextView)findViewById(R.id.status_user_name_text);
     statusText = (TextView)findViewById(R.id.status_text);

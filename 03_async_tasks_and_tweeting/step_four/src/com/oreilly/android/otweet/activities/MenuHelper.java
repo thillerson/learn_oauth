@@ -22,14 +22,6 @@ public class MenuHelper {
         return true;
       }
     break;
-    case R.id.menu_item_post:
-      if (requestingClass != PostActivity.class) {
-        intent = new Intent(context, PostActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        context.startActivity(intent);
-        return true;
-      }
-    break;
     }
     return false;
   }
