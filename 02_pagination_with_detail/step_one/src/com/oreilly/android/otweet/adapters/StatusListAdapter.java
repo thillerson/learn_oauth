@@ -32,37 +32,4 @@ public class StatusListAdapter extends ArrayAdapter<Status> {
     return v;
   }
 
-  public long getFirstId() {
-    Status firstStatus = getItem(0);
-    if (null == firstStatus) {
-      return 0;
-    } else {
-      return firstStatus.getId();
-    }
-  }
-
-  public long getLastId() {
-    Status lastStatus = getItem(getCount()-1);
-    if (null == lastStatus) {
-      return 0;
-    } else {
-      return lastStatus.getId();
-    }
-  }
-
-  public void appendNewer(ArrayList<Status> statii) {
-    setNotifyOnChange(false);
-    for (Status status : statii) {
-      insert(status, 0);
-    }
-    notifyDataSetChanged();
-  }
-  
-  public void appendOlder(ArrayList<Status> statii) {
-    setNotifyOnChange(false);
-    for (Status status : statii) {
-      add(status);
-    }
-    notifyDataSetChanged();
-  }
 }

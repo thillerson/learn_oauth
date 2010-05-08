@@ -89,13 +89,6 @@ public class StatusListActivity extends ListActivity {
     } else if (v.equals(footerView)) {
       footerView.showProgress();
       loadOlderTweets();
-    } else {
-      // Watch out! Doesn't account for header/footer! -> Status status =
-      // adapter.getItem(position);
-      Status status = (Status) getListView().getItemAtPosition(position);
-      Intent intent = new Intent(this, StatusDetailActivity.class);
-      intent.putExtra(StatusDetailActivity.STATUS, status);
-      startActivity(intent);
     }
   }
 

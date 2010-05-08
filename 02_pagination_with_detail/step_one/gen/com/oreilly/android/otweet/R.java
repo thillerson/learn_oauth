@@ -14,23 +14,16 @@ public final class R {
         public static final int icon=0x7f020000;
     }
     public static final class id {
-        public static final int created_at_text=0x7f060006;
         public static final int enter_pin_title=0x7f060001;
-        public static final int geo_text=0x7f060008;
-        public static final int load_more_progress=0x7f060003;
-        public static final int load_more_text=0x7f060002;
-        public static final int reply_to_text=0x7f060007;
-        public static final int status_text=0x7f060005;
-        public static final int status_user_name_text=0x7f060004;
-        public static final int user_avatar=0x7f060009;
+        public static final int status_text=0x7f060004;
+        public static final int status_user_name_text=0x7f060003;
+        public static final int user_avatar=0x7f060002;
         public static final int web_view=0x7f060000;
     }
     public static final class layout {
         public static final int authorization_view=0x7f030000;
-        public static final int load_more=0x7f030001;
-        public static final int main=0x7f030002;
-        public static final int status_detail=0x7f030003;
-        public static final int status_list_item=0x7f030004;
+        public static final int main=0x7f030001;
+        public static final int status_list_item=0x7f030002;
     }
     public static final class raw {
         public static final int oauth=0x7f040000;

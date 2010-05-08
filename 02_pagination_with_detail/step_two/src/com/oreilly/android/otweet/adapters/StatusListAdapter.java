@@ -41,15 +41,6 @@ public class StatusListAdapter extends ArrayAdapter<Status> {
     }
   }
 
-  public long getLastId() {
-    Status lastStatus = getItem(getCount()-1);
-    if (null == lastStatus) {
-      return 0;
-    } else {
-      return lastStatus.getId();
-    }
-  }
-
   public void appendNewer(ArrayList<Status> statii) {
     setNotifyOnChange(false);
     for (Status status : statii) {
@@ -58,11 +49,4 @@ public class StatusListAdapter extends ArrayAdapter<Status> {
     notifyDataSetChanged();
   }
   
-  public void appendOlder(ArrayList<Status> statii) {
-    setNotifyOnChange(false);
-    for (Status status : statii) {
-      add(status);
-    }
-    notifyDataSetChanged();
-  }
 }
