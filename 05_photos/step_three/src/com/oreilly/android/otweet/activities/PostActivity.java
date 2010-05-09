@@ -5,13 +5,9 @@ import java.util.Date;
 
 import twitter4j.Status;
 
-import com.harrison.lee.twitpic4j.TwitPic;
-import com.harrison.lee.twitpic4j.TwitPicResponse;
 import com.oreilly.android.otweet.OTweetApplication;
 import com.oreilly.android.otweet.R;
-import com.oreilly.android.otweet.tasks.PostPhotoAsyncTask;
 import com.oreilly.android.otweet.tasks.PostTweetAsyncTask;
-import com.oreilly.android.otweet.tasks.PostPhotoAsyncTask.PostPhotoResponder;
 import com.oreilly.android.otweet.tasks.PostTweetAsyncTask.PostTweetResponder;
 
 import android.app.Activity;
@@ -38,7 +34,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class PostActivity extends Activity implements PostTweetResponder, PostPhotoResponder {
+public class PostActivity extends Activity implements PostTweetResponder {
 
   private static final int REQUEST_CHOOSE_PHOTO_FROM_LIBRARY = 0;
   private static final int REQUEST_CHOOSE_PHOTO_FROM_CAMERA = 1;
@@ -121,10 +117,6 @@ public class PostActivity extends Activity implements PostTweetResponder, PostPh
     }
   }
   
-  public void photoPosting() {
-    tweetPosting();
-  }
-  
   public void tweetPosting() {
     progressDialog = ProgressDialog.show(
         this,
@@ -137,10 +129,6 @@ public class PostActivity extends Activity implements PostTweetResponder, PostPh
     progressDialog.dismiss();
     Toast.makeText(this, R.string.tweet_posted, Toast.LENGTH_LONG).show();
     finish();
-  }
-
-  public void photoPosted(TwitPicResponse result) {
-    tweetPosted(null);
   }
 
   private void postValidTweetOrWarn() {
@@ -169,9 +157,6 @@ public class PostActivity extends Activity implements PostTweetResponder, PostPh
     } else {
       if (null == photoUri) {
         new PostTweetAsyncTask(this, app.getTwitter()).execute(postText);
-      } else {
-        TwitPic twitpic = new TwitPic(app.getTwitPicUsername(), app.getTwitPicPassword());
-        new PostPhotoAsyncTask(this, this, twitpic).execute(postText, photoUri);
       }
     }
   }
